@@ -4,6 +4,57 @@ var ctx = screenColor.getContext("2d");
 ctx.strokeStyle = "black";
 ctx.strokeRect(0, 0, screenColor.width, screenColor.height);
 
+document.addEventListener('keydown', function(event) {
+
+    // Left key
+    if(event.keyCode == 37) {
+        console.log('keypressed')
+        console.log(dx,dy)
+        switch (dx,dy) {
+            case 10,0: // right
+                dx = 0; // up
+                dy = 10;
+                break;
+            case -10,0: //left
+                dx = 0; // down
+                dy = -10;
+                break;
+            case 0,10: // up
+                dx = 10; // left
+                dy = 0;
+                break;
+            case 0,-10: // down
+                dx = 0; // right
+                dy = -10;
+                break;
+            default:
+                break;
+        }
+    }/*
+    else if(event.keyCode == 39) {
+        switch (dx,dy) {
+            case 10,0: // right
+                dx = 0; // up
+                dy = -10;
+                break;
+            case -10,0: //left
+                dx = 0; // down
+                dy = 10;
+                break;
+            case 0,10: // up
+                dx = 10; // left
+                dy = 0;
+                break;
+            case 0,-10: // down
+                dx = -10; // right
+                dy = 0;
+                break;
+            default:
+                break;
+        }
+    }*/
+});
+
 // Create the snake
 let snakey = [
     {x:210, y:250},
@@ -13,7 +64,7 @@ let snakey = [
     {x:250, y:250}
 ];
 
-let dx = -10;
+let dx = -10; // Left
 let dy = 0;
 
 function drawSnakeyPart(snakeyPart) {
@@ -35,16 +86,13 @@ function clearCanvas(){
     ctx.strokeRect(0, 0, screenColor.width, screenColor.height);
 }
 
-function checkInput(){
 
-}
+
+
 function main(){
-    console.log('hello');
     clearCanvas();
     snakey.forEach(drawSnakeyPart);
-    //checkInput()
     advanceSnakey();
-
 };
 
 function drawFood(){
@@ -62,10 +110,4 @@ setInterval(main, 60);
 
 
 console.log(snakey)
-
-
-
-
-
-
 
