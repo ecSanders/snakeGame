@@ -9,56 +9,25 @@ document.addEventListener('keydown', function(event) {
     
     // Left key
     if(event.keyCode == 37) {
-        console.log('keypressed')
-        console.log(dx,dy)
-        switch (dx,dy) {
-            case 10,0: // right
-                dx = 0; // up
-                dy = 10; // HADA
-                break;
+        dx = -10;
+        dy = 0;
+    }
+    // Right key
+    if(event.keyCode == 39){
+        dx = 10;
+        dy = 0;
+    }  
+    // Up key
+    if(event.keyCode == 38){
+        dx = 0;
+        dy = -10;
+    }
+    // Down key
+    if(event.keyCode == 40){
+        dx = 0;
+        dy = 10;
 
-            case -10,0: //left
-                dx = 0; // down
-                dy = -10; // WORKS
-                break;
-
-            case 0,10: // up
-                dx = 10; // left
-                dy = 0; // HADA
-                break;
-
-            case 0,-10: // down
-                dx = 0; // right
-                dy = -10; // WORKS
-                break;
-                
-            default:
-                break;
-        }
-    }/*
-    else if(event.keyCode == 39) {
-        switch (dx,dy) {
-            case 10,0: // right
-            dx = 0; // up
-            dy = -10;
-            break;
-            case -10,0: //left
-            dx = 0; // down
-            dy = 10;
-            break;
-            case 0,10: // up
-            dx = 10; // left
-            dy = 0;
-            break;
-            case 0,-10: // down
-            dx = -10; // right
-            dy = 0;
-            break;
-            default:
-                break;
-            }
-        }*/
-    });
+    }});
 
 
 // Refresh the canvas
